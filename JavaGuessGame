@@ -1,0 +1,52 @@
+// Guessing game program when the user chooses a number between one and ten
+// The user has four tries to guess the correct random-generated number
+// Written by DJ Young, Washington DC, 2019
+
+import java.util.Random;
+import java.util.Scanner;
+import javax.swing.*;
+
+public class GuessingGame {
+
+	JFrame frame = new JFrame("Guessing Game");
+
+	Random rand = new Random();
+	Scanner input = new Scanner(System.in);
+	int numGuess = rand.nextInt(10);
+	int numTries = 0;
+	int intChoice = 0
+	boolean win = false;
+	int guess;
+
+	public static void main(String[] args) {
+	
+                    	do {
+			JOptionPane.showMessageDialog(null, "You have guessed correctly!  The number is " + numGuess)
+			JOptionPane.showInputDialog(null, "\nWould you like to play again? Select YES or NO");
+    			intChoice = Integer.parseInt(strInput);
+ 
+                       	}while (intChoice == 1);
+	       	JOptionPane.showMessageDialog(null, "Thanks for playing!");	
+	}
+
+	public static boolean playGame() {
+
+
+		do  {
+			JOptionPane.showInputDialog(null, "Guess a number between 1 and 10: ");
+			guess = Integer.parseInt(strInput);
+			numTries++;
+			
+			if (guess == numGuess) {
+				win = true;
+				JOptionPane.showInputDialog(null, "You win!");
+			}
+			else if (guess < numGuess) {
+				JOptionPane.showMessageDialog(null, guess + " is too low");
+			}
+			else if (guess > numGuess) {
+				JOptionPane.showMessageDialog(null, guess + "is too high");
+			}
+		  } while (win == false, numTries < 4);
+	}
+}
